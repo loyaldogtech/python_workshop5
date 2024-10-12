@@ -6,6 +6,7 @@ def guess_random_number(tries, start, stop):
     while tries != 0:
         print(f"Tries remaining: {tries}")
 
+        # Input validation to ensure the guess is an integer within the given range
         while True:
             try:
                 guess = int(input(f"Guess a number between {start} and {stop}: "))
