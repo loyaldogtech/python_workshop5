@@ -1,15 +1,24 @@
 import random
 
+
 def guess_random_number(tries, start, stop):
     number_to_guess = random.randint(start, stop)
     print(f"The random number to guess is: {number_to_guess}")
+
+    guessed_numbers = set()
+
     while tries != 0:
         print(f"Tries remaining: {tries}")
 
         while True:
             try:
                 guess = int(input(f"Guess a number between {start} and {stop}: "))
+                if guess in guessed_numbers:
+                    print("You've already guessed that number! Try again.")
+                    continue
+
                 if start <= guess <= stop:
+                    guessed_numbers.add(guess)
                     break
                 else:
                     print(f"Please enter a number between {start} and {stop}.")
